@@ -1,0 +1,14 @@
+<?php 
+class WebDeveloper { 
+  $private $info = array();
+  public function __set($item, $value) {
+    $this->info[$item] = $value;
+  }
+  public function __sleep() {
+    return array(‘info’);
+  }
+}
+$developer = new WebDeveloper();
+$developer->name = ‘Jordizle’;
+$data = serialize($developer);
+?>
